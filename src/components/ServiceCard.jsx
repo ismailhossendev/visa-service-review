@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { ImLocation2 ,ImStarFull} from "react-icons/im";
+import {HiCurrencyBangladeshi} from "react-icons/hi";
 
 const ServiceCard = () => {
     return (
@@ -11,7 +12,7 @@ const ServiceCard = () => {
         </span>
         <span className="absolute left-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
             400
-            <ImStarFull className="ml-1 text-bg text-yellow-500 mb-0.5"/>
+            <HiCurrencyBangladeshi className="ml-1 text-bg text-yellow-500 mb-0.5"/>
         </span>
         <div className="relative bg-black bg-opacity-40 p-8 pt-40 text-white space-y-3">
             <h3 className="text-2xl font-bold">Explore Kolkata</h3>
