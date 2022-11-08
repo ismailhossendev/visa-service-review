@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 import loginImg from '../assest/img/login.svg';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { mainContext } from '../context/MainContext';
 
 const Login = () => {
     const [show, setShow] =useState(false);
+    const {user} = useContext(mainContext)
+
     return (
         <section className="relative flex flex-wrap lg:h-[80vh] lg:items-center bg-gray-300">
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
@@ -47,6 +51,7 @@ const Login = () => {
                         </button>
                     </div>
                     </form>
+                    <Link className='bg-rose-400 p-1 rounded-md'>Google</Link>
                 </div>
             </div>
             <div className="h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
