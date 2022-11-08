@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
 
 
@@ -34,7 +35,9 @@ const AddService = () => {
 
     return (
         <main className="flex min-h-screen flex-col justify-center p-10">
-            
+                        <Helmet>
+                <title>Visa Dalal -Add service</title>
+            </Helmet>
             <form onSubmit={HandleServiceAdd} className="mx-auto rounded-xl border border-black  py-6 p-4 lg:w-1/2  shadow-2xl shadow-white/40">
                 <h1 className="text-3xl font-bold text-gray-700">Add Services</h1>
                 <p className="mb-8  text-gray-500">All * are required</p>

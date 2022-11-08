@@ -1,16 +1,17 @@
 import React from 'react';
 
-const Review = () => {
+const Review = ({review}) => {
+    const {title,price,reviewText,userImage,displayName} = review;
     return (
         <div className="container flex flex-col lg:w-[400px] w-full m-2 p-6  divide-y rounded-md divide-gray-700 shadow-gray-500 shadow-md">
             <div className="flex justify-between p-4" bis_skin_checked="1">
                 <div className="flex space-x-4" bis_skin_checked="1">
                     <div bis_skin_checked="1">
-                        <img src="https://source.unsplash.com/100x100/?portrait" alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
+                        <img src={userImage} alt="" className="object-cover w-12 h-12 rounded-full bg-gray-500" />
                     </div>
                     <div bis_skin_checked="1">
-                        <h4 className="font-bold">Leroy Jenkins</h4>
-                        <span className="text-xs text-gray-800">2 days ago</span>
+                        <h4 className="font-bold">{displayName}</h4>
+                        <span className="text-xs text-gray-800">{title}</span>
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 text-yellow-500" bis_skin_checked="1">
@@ -21,8 +22,7 @@ const Review = () => {
                 </div>
             </div>
             <div className="p-4 space-y-2 text-sm text-gray-600" bis_skin_checked="1">
-                <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
-                <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
+                <p>{reviewText}</p>
             </div>
         </div>
     );

@@ -3,6 +3,7 @@ import loginImg from '../assest/img/login.svg';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { mainContext } from '../context/MainContext';
+import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
     const [show, setShow] =useState(false);
@@ -20,6 +21,9 @@ const Login = () => {
 
     return (
         <section className="relative flex flex-wrap lg:h-[80vh] lg:items-center bg-gray-300">
+            <Helmet>
+                <title>Visa Dalal -login</title>
+            </Helmet>
             <div className="w-full px-4 py-12 sm:px-6 sm:py-16 lg:w-1/2 lg:px-8 lg:py-24">
                 <div className="shadow-2xl p-4 rounded lg:w-1/2 mx-auto">
                     <div className="mx-auto max-w-lg text-center">

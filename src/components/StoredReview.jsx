@@ -1,6 +1,7 @@
 import React from 'react';
 
-const StoredReview = () => {
+const StoredReview = ({review}) => {
+        const {displayName,title,reviewText,userImage} = review;
     return (
         <div>
             <div className="max-w-3xl w-full mx-auto z-10 shadow-md shadow-gray-600 rounded-md">
@@ -8,15 +9,15 @@ const StoredReview = () => {
                     <div className="bg-white border border-white shadow-lg  rounded-3xl p-4 m-4">
                     <div className="flex-none sm:flex">
                         <div className=" relative h-32 w-32   sm:mb-0 mb-3">
-                        <img src="https://tailwindcomponents.com/storage/avatars/njkIbPhyZCftc4g9XbMWwVsa7aGVPajYLRXhEeoo.jpg" alt="aji" className=" w-32 h-32 object-cover rounded-2xl" />
+                        <img src={userImage} alt="aji" className=" w-32 h-32 object-cover rounded-2xl" />
                         </div>
                         <div className="flex-auto sm:ml-5 justify-evenly">
                         <div className="flex items-center justify-between sm:mt-2">
                             <div className="flex items-center">
                             <div className="flex flex-col">
-                                <div className="w-full flex-none text-lg text-gray-800 font-bold leading-none">Ismail Hossen</div>
+                                <div className="w-full flex-none text-lg text-gray-800 font-bold leading-none">{displayName}</div>
                                 <div className="flex-auto text-gray-500 my-1">
-                                <span className="mr-3 ">Us Visa Processing</span><span className="mr-3 border-r border-gray-200  max-h-0" />
+                                <span className="mr-3 ">{title}</span><span className="mr-3 border-r border-gray-200  max-h-0" />
                                 </div>
                             </div>
                             </div>
@@ -43,7 +44,7 @@ const StoredReview = () => {
                             </svg>
                             </div>
                         </div>
-                             <p className='text-gray-700'>This person service is awsome and also fast.</p>
+                             <p className='text-gray-700'>{reviewText}</p>
                         </div>
                     </div>
                     </div>

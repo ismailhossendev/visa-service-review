@@ -2,11 +2,17 @@ import React from 'react';
 import Review from './Review';
 import Slider from "react-slick";
 import {FaAngleRight,FaAngleLeft} from 'react-icons/fa';
+import { mainContext } from '../context/MainContext';
 
 
 
 const Testimonials = () => {
-
+  const [reviews,setReviews] = React.useState([])
+  React.useEffect(()=>{
+      fetch(`http://localhost:5000/reviews`)
+      .then(res => res.json())
+      .then(data => setReviews(data.data))
+  },[])
 
     function SampleNextArrow(props) {
         const {  onClick } = props;
@@ -69,7 +75,7 @@ const Testimonials = () => {
           <h2 className='text-3xl text-center font-semibold my-2 font-serif'>Read trusted reviews from our travelers </h2>
           <Slider {...settings}>
             {
-                [...Array(10)].map(review => <div className=""><Review/></div> )
+                reviews.map(review => <Review key={review._id} review={review}/>)
             }
           </Slider>
         </div>
