@@ -28,9 +28,11 @@ const ServiceCard = ({service}) => {
             </strong>
             <h3 className="mt-4 text-lg font-bold">{title}</h3>
             <p className='font-thin'>{time} Need Delivery With Processing</p>
-            <p className="mt-2 text-sm text-gray-700 flex gap-1 items-center">{price} <HiCurrencyBangladeshi className='text-[18px]'/> </p>
-            <p className='text-sm text-gray-700'>{details.length > 100 ? details.slice(0,100) + "..." : details}</p>
-            <Link to={`/service/${_id}`} type="button" className="mt-4  text-center w-full rounded-sm bg-yellow-500 p-4 text-sm font-medium">
+            <p className="mt-2 text-sm text-gray-700 flex gap-1 items-center">Price:{price} <HiCurrencyBangladeshi className='text-[18px]'/> </p>
+            <p className='text-sm text-gray-700'>{details.length > 100 ?<> {details.slice(0,90)}<Link to={`/services/${_id}`} className="mt-4 underline text-sm font-medium">
+            Read more..
+            </Link></>: details}</p>
+            <Link to={`/services/${_id}`} type="button" className="mt-4  text-center w-full rounded-sm bg-yellow-500 p-4 text-sm font-medium">
             Details
             </Link>
         </div>

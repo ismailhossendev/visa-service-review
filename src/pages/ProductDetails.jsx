@@ -8,17 +8,16 @@ import { mainContext } from '../context/MainContext';
 const ProductDetails = () => {
     const {data} = useLoaderData();
     const {title, details, price, country, image,_id} = data;
-    const {user} = useContext(mainContext)
+    const {user,loading} = useContext(mainContext)
     const [reviews,setReviews] = useState([])
     const [refresh,setRefresh] = useState(false);
-
+    window.scroll(0,0)
     useEffect(()=>{
         fetch(`http://localhost:5000/reviews?productId=${_id}`)
         .then(res => res.json())
         .then(data => setReviews(data.data))
     },[_id,refresh])
-
-
+    
     return (
         <section className=' mx-auto max-w-screen-xl'>
                         <Helmet>

@@ -1,17 +1,20 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import AddService from "../pages/AddService";
+import Error from "../pages/Error";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import MyReviews from "../pages/MyReviews";
 import ProductDetails from "../pages/ProductDetails";
 import Register from "../pages/Register";
 import Services from "../pages/Services";
+import NeedLogin from "./NeedLogin";
 
 export const route = createBrowserRouter([
     {
         path: "/",
         element:<Main/>,
+        errorElement:<Error/>,
         children: [
             {
                 path: "/",
@@ -28,7 +31,7 @@ export const route = createBrowserRouter([
             {
                 path:'/services/add',
                 loader: () => fetch('https://restcountries.com/v3.1/all'),
-                element:<AddService/>
+                element:<NeedLogin><AddService/></NeedLogin>
             },
             {
                 path: "/services",
@@ -36,13 +39,13 @@ export const route = createBrowserRouter([
                 element:<Services/>
             },
             {
-                path: "/service/:id",
+                path: "/services/:id",
                 loader: ({params})=> fetch(`http://localhost:5000/services/${params.id}`),
                 element:<ProductDetails/>,
             },
             {
                 path: "/my-reviews",
-                element:<MyReviews/>,
+                element:<NeedLogin><MyReviews/></NeedLogin>,
             }
         ]
     }

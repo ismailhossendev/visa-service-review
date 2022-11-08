@@ -1,21 +1,26 @@
 import React, { useState,useContext } from 'react';
 import loginImg from '../assest/img/login.svg';
 import {FaEye, FaEyeSlash} from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { mainContext } from '../context/MainContext';
 import { Helmet } from 'react-helmet-async';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const [show, setShow] =useState(false);
     const {user,withGoogle} = useContext(mainContext)
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
+    const navigate = useNavigate();
+
 
     const handleGoogle = () =>{
         withGoogle()
-        .then(res => res.json())
         .then(data => {
-            alert(data.user.displayName);
+            toast.success('Login successfully')
+            navigate(from, {replace: true})
         }).catch(err => {
-            alert(err.code);
+            toast.error(err.code)
         })
     }
 

@@ -1,8 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const CreateReview = ({user,data,refresh,setRefresh}) => {
+    
     const {title, price,image,_id} = data;
-    const {displayName, email, photoURL} = user;
 
     const handleReview = (e) =>{
         e.preventDefault();
@@ -13,10 +15,10 @@ const CreateReview = ({user,data,refresh,setRefresh}) => {
             price,
             productImage:image,
             productId : _id,
-            displayName,
+            displayName:user?.displayName,
             time,
-            email,
-            userImage:photoURL,
+            email:user?.email,
+            userImage:user?.photoURL,
             reviewText: e.target.message.value
         }
 
@@ -30,7 +32,7 @@ const CreateReview = ({user,data,refresh,setRefresh}) => {
         .then(res => res.json())
         .then(data => {
             if(data){
-                alert(data.message)
+                toast.success(data.message)
                 setRefresh(!refresh)
             }
         })
@@ -73,7 +75,11 @@ const CreateReview = ({user,data,refresh,setRefresh}) => {
             </div>
             <form onSubmit={handleReview} className="flex flex-col w-full" >
                 <textarea rows="3" name='message' placeholder="Message..." className="p-4 rounded-md resize-none "></textarea>
-                <button type="submit" className="py-4 my-8 font-semibold rounded-md text-gray-900 bg-violet-400">Leave feedback</button>
+                { user?.uid ? 
+                    <button type="submit" className="py-4 my-8 font-semibold rounded-md text-gray-800 bg-violet-400">Leave feedback</button>:
+                    <Link to='/login' type="submit" className="py-4 my-8 font-semibold rounded-md text-gray-800 bg-violet-500 text-center">Please login for review</Link>
+
+                }
             </form>
         </div>
     </div>
