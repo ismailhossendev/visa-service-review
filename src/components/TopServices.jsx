@@ -5,7 +5,7 @@ import ServiceCard from './ServiceCard';
 const TopServices = () => {
     return (
         <div className='my-10 px-5 md:px-0 '>
-            <h2 className="text-4xl font-bold text-center text-red-900 my-5 font-serif">Our Upcoming Tours</h2>
+            <h2 className="text-4xl font-bold text-center text-red-900 my-5 font-serif">Our Latest Service</h2>
             <div className="grid md:grid-cols-3 gap-2">
                 {
                     [...Array(3)].map(service => <ServiceCard/>)

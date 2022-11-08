@@ -26,6 +26,7 @@ const ServiceCard = () => {
             </strong>
             <h3 className="mt-4 text-lg font-bold">Robot Toy</h3>
             <p className="mt-2 text-sm text-gray-700 flex gap-1 items-center">1800 <HiCurrencyBangladeshi className='text-[18px]'/> </p>
+            <p className='text-sm text-gray-700'>This now best valuable service in bangladesh</p>
             <Link to='/service/details' type="button" className="mt-4  text-center w-full rounded-sm bg-yellow-500 p-4 text-sm font-medium">
             Details
             </Link>

@@ -1,4 +1,5 @@
 import React from 'react';
+import StoredReview from '../components/StoredReview';
 
 const ProductDetails = () => {
     return (
@@ -65,6 +66,10 @@ const ProductDetails = () => {
                         </div>
                     </summary>  
                 </details>
+            </div>
+            <div className="my-5 grid md:grid-cols-2 gap-2">
+                <StoredReview/>
+
             </div>
             <div className="flex flex-col w-full mx-auto p-8 shadow-lg shadow-slate-700 my-5 rounded-xl  lg:p-12">
                 <div className="flex flex-col items-center w-full" bis_skin_checked="1">

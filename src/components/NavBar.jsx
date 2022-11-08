@@ -26,9 +26,9 @@ const NavBar = () => {
                         </a>
                     </li>
                     <li>
-                        <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
-                        History
-                        </a>
+                        <Link className="text-gray-500 transition hover:text-gray-500/75" to="/my-reviews">
+                        My Reviews
+                        </Link>
                     </li>
                     <li>
                         <Link className="text-gray-500 transition hover:text-gray-500/75" to="/services">
