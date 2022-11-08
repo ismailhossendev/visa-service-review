@@ -2,6 +2,7 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 const Register = () => {
+    
     return (
         <section className="bg-white">
             <Helmet>

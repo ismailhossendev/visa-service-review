@@ -30,6 +30,13 @@ const MainContext = ({children}) => {
             alert(error.message)
         });
     }
+
+    const handleCreate = (email,password) =>{
+        setLoading(true)
+       return auth.createUserWithEmailAndPassword(email,password)
+
+    }
+
     const value = {withGoogle,user,logout,loading}
     return (
         <div>

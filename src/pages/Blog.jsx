@@ -1,8 +1,12 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 
 const Blog = () => {
     return (
         <section className=" ">
+            <Helmet>
+                <title>Visa Dalal -Add service</title>
+            </Helmet>
             <div className="container flex flex-col justify-center p-4 mx-auto md:p-8" bis_skin_checked="1">
                 <p className="p-2 text-sm font-medium tracking-wider text-center uppercase">How it works</p>
                 <h2 className="mb-12 text-4xl font-bold leading-none text-center sm:text-5xl">Frequently Asked Questions</h2>

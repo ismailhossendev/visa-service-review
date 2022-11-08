@@ -1,6 +1,6 @@
 import React, { useState,useContext } from 'react';
 import loginImg from '../assest/img/login.svg';
-import {FaEye, FaEyeSlash} from 'react-icons/fa';
+import {FaEye, FaEyeSlash,FaGoogle} from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { mainContext } from '../context/MainContext';
 import { Helmet } from 'react-helmet-async';
@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const [show, setShow] =useState(false);
-    const {user,withGoogle} = useContext(mainContext)
+    const {withGoogle} = useContext(mainContext)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate();
@@ -23,6 +23,8 @@ const Login = () => {
             toast.error(err.code)
         })
     }
+
+    
 
     return (
         <section className="relative flex flex-wrap lg:h-[80vh] lg:items-center bg-gray-300">
@@ -70,7 +72,9 @@ const Login = () => {
                         </button>
                     </div>
                     </form>
-                    <button onClick={handleGoogle} className='bg-rose-400 p-1 rounded-md'>Google</button>
+                    <div onClick={handleGoogle} className="flex items-center justify-center cursor-pointer my-2 gap-5 shadow-md text-gray-700 mx-auto w-[250px] hover:bg-indigo-500 rounded hover:text-gray-200 py-1">
+                        <FaGoogle/>  Login with Google 
+                    </div>
                 </div>
             </div>
             <div className="h-64 w-full sm:h-96 lg:h-full lg:w-1/2">

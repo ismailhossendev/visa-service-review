@@ -36,7 +36,7 @@ const AddService = () => {
 
     return (
         <main className="flex min-h-screen flex-col justify-center p-10">
-                        <Helmet>
+            <Helmet>
                 <title>Visa Dalal -Add service</title>
             </Helmet>
             <form onSubmit={HandleServiceAdd} className="mx-auto rounded-xl border border-black  py-6 p-4 lg:w-1/2  shadow-2xl shadow-white/40">
