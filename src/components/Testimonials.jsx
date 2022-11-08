@@ -33,8 +33,8 @@ const Testimonials = () => {
         nextArrow: <SampleNextArrow />,
         prevArrow: <SamplePrevArrow />,
         autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 2000,
+        speed: 4000,
+        autoplaySpeed: 2500,
         initialSlide: 0,
         
         responsive: [

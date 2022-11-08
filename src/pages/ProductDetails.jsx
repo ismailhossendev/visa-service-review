@@ -66,7 +66,7 @@ const ProductDetails = () => {
                     </summary>  
                 </details>
             </div>
-            <div className="flex flex-col w-full mx-auto p-8 shadow-sm rounded-xl lg:p-12 bg-gray-900 text-gray-100">
+            <div className="flex flex-col w-full mx-auto p-8 shadow-lg shadow-slate-700 my-5 rounded-xl  lg:p-12">
                 <div className="flex flex-col items-center w-full" bis_skin_checked="1">
                     <h2 className="text-3xl font-semibold text-center">Your opinion On My Service</h2>
                     <div className="flex flex-col items-center py-6 space-y-3" bis_skin_checked="1">
@@ -100,7 +100,7 @@ const ProductDetails = () => {
                         </div>
                     </div>
                     <div className="flex flex-col w-full" bis_skin_checked="1">
-                        <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none text-gray-100 bg-gray-900"></textarea>
+                        <textarea rows="3" placeholder="Message..." className="p-4 rounded-md resize-none "></textarea>
                         <button type="button" className="py-4 my-8 font-semibold rounded-md text-gray-900 bg-violet-400">Leave feedback</button>
                     </div>
                 </div>

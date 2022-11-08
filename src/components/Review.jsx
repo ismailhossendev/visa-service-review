@@ -2,7 +2,7 @@ import React from 'react';
 
 const Review = () => {
     return (
-        <div className="container flex flex-col lg:w-[400px] w-full m-2 p-6  divide-y rounded-md divide-gray-700 bg-gray-900 text-gray-100">
+        <div className="container flex flex-col lg:w-[400px] w-full m-2 p-6  divide-y rounded-md divide-gray-700 shadow-gray-500 shadow-md">
             <div className="flex justify-between p-4" bis_skin_checked="1">
                 <div className="flex space-x-4" bis_skin_checked="1">
                     <div bis_skin_checked="1">
@@ -10,7 +10,7 @@ const Review = () => {
                     </div>
                     <div bis_skin_checked="1">
                         <h4 className="font-bold">Leroy Jenkins</h4>
-                        <span className="text-xs text-gray-400">2 days ago</span>
+                        <span className="text-xs text-gray-800">2 days ago</span>
                     </div>
                 </div>
                 <div className="flex items-center space-x-2 text-yellow-500" bis_skin_checked="1">
@@ -20,7 +20,7 @@ const Review = () => {
                     <span className="text-xl font-bold">4.5</span>
                 </div>
             </div>
-            <div className="p-4 space-y-2 text-sm text-gray-400" bis_skin_checked="1">
+            <div className="p-4 space-y-2 text-sm text-gray-600" bis_skin_checked="1">
                 <p>Vivamus sit amet turpis leo. Praesent varius eleifend elit, eu dictum lectus consequat vitae. Etiam ut dolor id justo fringilla finibus.</p>
                 <p>Donec eget ultricies diam, eu molestie arcu. Etiam nec lacus eu mauris cursus venenatis. Maecenas gravida urna vitae accumsan feugiat. Vestibulum commodo, ante sit urna purus rutrum sem.</p>
             </div>
