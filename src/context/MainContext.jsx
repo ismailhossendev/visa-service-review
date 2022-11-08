@@ -16,6 +16,7 @@ const MainContext = ({children}) => {
         const unlink = onAuthStateChanged(auth,(result)=>{
             setUser(result)
         })
+        return ()=> unlink()
     },[])
 
     const value = {withGoogle,user}

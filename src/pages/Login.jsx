@@ -6,7 +6,17 @@ import { mainContext } from '../context/MainContext';
 
 const Login = () => {
     const [show, setShow] =useState(false);
-    const {user} = useContext(mainContext)
+    const {user,withGoogle} = useContext(mainContext)
+
+    const handleGoogle = () =>{
+        withGoogle()
+        .then(res => res.json())
+        .then(data => {
+            alert(data.user.displayName);
+        }).catch(err => {
+            alert(err.code);
+        })
+    }
 
     return (
         <section className="relative flex flex-wrap lg:h-[80vh] lg:items-center bg-gray-300">
@@ -51,7 +61,7 @@ const Login = () => {
                         </button>
                     </div>
                     </form>
-                    <Link className='bg-rose-400 p-1 rounded-md'>Google</Link>
+                    <button onClick={handleGoogle} className='bg-rose-400 p-1 rounded-md'>Google</button>
                 </div>
             </div>
             <div className="h-64 w-full sm:h-96 lg:h-full lg:w-1/2">
