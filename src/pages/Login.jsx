@@ -65,7 +65,7 @@ const Login = () => {
                     <div className="flex items-center justify-between">
                         <p className="text-sm text-gray-500">
                         No account?
-                        <a href="#" className="underline">Sign up</a>
+                        <Link to='/register' className="underline">Sign up</Link>
                         </p>
                         <button type="submit" className="ml-3 inline-block rounded-lg bg-blue-500 px-5 py-3 text-sm font-medium text-white">
                         Sign in

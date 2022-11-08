@@ -1,8 +1,36 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import { mainContext } from '../context/MainContext';
 
 const Register = () => {
-    
+    const {handleCreate,UpdatePhoto,setLoading} = React.useContext(mainContext)
+
+    const handleRegister = (e) => {
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        const confirmPassword = e.target.password_confirmation.value;
+        const PhotoURL = e.target.image.value;
+        const fullName = e.target.first_name.value + e.target.last_name.value;
+        if (password !== confirmPassword) {
+            toast.error('password not match')
+            return;
+        }
+        handleCreate(email,password)
+        .then((result) => {
+            UpdatePhoto(PhotoURL,fullName)
+            .then((result) => {
+                setLoading(false)
+                toast.success('successfully register')
+            })
+        }).catch((error) => {
+            toast.error(error.code)
+            setLoading(false)
+        });
+
+    }
     return (
         <section className="bg-white">
             <Helmet>
@@ -21,13 +49,12 @@ const Register = () => {
                     </svg>
                     </a>
                     <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                    Welcome to Visa Processing with Ismail 🦑
+                    Welcome to Visa Processing with VISA DALAL
                     </h1>
                     <p className="mt-4 leading-relaxed text-gray-500">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
-                    dolorum aliquam, quibusdam aperiam voluptatum.
+                    we are here to help you with your visa processing.
                     </p>
-                    <form action="#" className="mt-8 grid grid-cols-6 gap-6">
+                    <form onSubmit={handleRegister} className="mt-8 grid grid-cols-6 gap-6">
                     <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
                         First Name
@@ -40,7 +67,13 @@ const Register = () => {
                         </label>
                         <input type="text" id="LastName" name="last_name" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
-                    <div className="col-span-6">
+                    <div className="col-span-3">
+                        <label htmlFor="image" className="block text-sm font-medium text-gray-700">
+                        PhotoURL
+                        </label>
+                        <input type="text" id="image" name="image" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
+                    </div>
+                    <div className="col-span-3">
                         <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
                         Email
                         </label>
@@ -58,32 +91,13 @@ const Register = () => {
                         </label>
                         <input type="password" id="PasswordConfirmation" name="password_confirmation" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
-                    <div className="col-span-6">
-                        <label htmlFor="MarketingAccept" className="flex gap-4">
-                        <input type="checkbox" id="MarketingAccept" name="marketing_accept" className="h-5 w-5 rounded-md border-gray-200 bg-white shadow-sm" />
-                        <span className="text-sm text-gray-700">
-                            I want to receive emails about events, product updates and
-                            company announcements.
-                        </span>
-                        </label>
-                    </div>
-                    <div className="col-span-6">
-                        <p className="text-sm text-gray-500">
-                        By creating an account, you agree to our
-                        <a href="#" className="text-gray-700 underline">
-                            terms and conditions
-                        </a>
-                        and
-                        <a href="#" className="text-gray-700 underline">privacy policy</a>.
-                        </p>
-                    </div>
                     <div className="col-span-6 sm:flex sm:items-center sm:gap-4">
                         <button className="inline-block shrink-0 rounded-md border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-600 focus:outline-none focus:ring active:text-blue-500">
                         Create an account
                         </button>
                         <p className="mt-4 text-sm text-gray-500 sm:mt-0">
                         Already have an account?
-                        <a href="#" className="text-gray-700 underline">Log in</a>.
+                        <Link to='/login' className="text-gray-700 underline">Log in</Link>.
                         </p>
                     </div>
                     </form>

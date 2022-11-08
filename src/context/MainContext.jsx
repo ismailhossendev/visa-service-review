@@ -1,5 +1,5 @@
 import React,{createContext,useState,useEffect} from 'react';
-import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config'
 import { toast } from 'react-toastify';
 
@@ -33,11 +33,17 @@ const MainContext = ({children}) => {
 
     const handleCreate = (email,password) =>{
         setLoading(true)
-       return auth.createUserWithEmailAndPassword(email,password)
+        return createUserWithEmailAndPassword(auth,email,password);
 
     }
-
-    const value = {withGoogle,user,logout,loading}
+    const UpdatePhoto = (url,displayName) =>{
+        setLoading(true)
+        return updateProfile(auth.currentUser,{
+            photoURL: url,
+            displayName: displayName
+        })
+    }
+    const value = {withGoogle,user,logout,loading,setLoading,handleCreate,UpdatePhoto}
     return (
         <div>
             <mainContext.Provider value={value}>
