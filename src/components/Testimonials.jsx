@@ -2,14 +2,12 @@ import React from 'react';
 import Review from './Review';
 import Slider from "react-slick";
 import {FaAngleRight,FaAngleLeft} from 'react-icons/fa';
-import { mainContext } from '../context/MainContext';
-
 
 
 const Testimonials = () => {
   const [reviews,setReviews] = React.useState([])
   React.useEffect(()=>{
-      fetch(`http://localhost:5000/reviews`)
+      fetch(`http://localhost:5000/reviews?limit=6`)
       .then(res => res.json())
       .then(data => setReviews(data.data))
   },[])
