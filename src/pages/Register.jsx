@@ -3,7 +3,7 @@ import React from 'react';
 const Register = () => {
     return (
         <section className="bg-white">
-            <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
+            <div className="lg:grid lg:min-h-[95vh] lg:grid-cols-12">
                 <aside className="relative block h-16 lg:order-last lg:col-span-5 lg:h-full xl:col-span-6">
                 <img alt="Pattern" src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" className="absolute inset-0 h-full w-full object-cover" />
                 </aside>
@@ -16,7 +16,7 @@ const Register = () => {
                     </svg>
                     </a>
                     <h1 className="mt-6 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
-                    Welcome to Squid 🦑
+                    Welcome to Visa Processing with Ismail 🦑
                     </h1>
                     <p className="mt-4 leading-relaxed text-gray-500">
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam
@@ -27,31 +27,31 @@ const Register = () => {
                         <label htmlFor="FirstName" className="block text-sm font-medium text-gray-700">
                         First Name
                         </label>
-                        <input type="text" id="FirstName" name="first_name" className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input type="text" id="FirstName" name="first_name" className="mt-1 w-full rounded-md border-gray-400  bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="LastName" className="block text-sm font-medium text-gray-700">
                         Last Name
                         </label>
-                        <input type="text" id="LastName" name="last_name" className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input type="text" id="LastName" name="last_name" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
                     <div className="col-span-6">
                         <label htmlFor="Email" className="block text-sm font-medium text-gray-700">
                         Email
                         </label>
-                        <input type="email" id="Email" name="email" className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input type="email" id="Email" name="email" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="Password" className="block text-sm font-medium text-gray-700">
                         Password
                         </label>
-                        <input type="password" id="Password" name="password" className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input type="password" id="Password" name="password" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
                     <div className="col-span-6 sm:col-span-3">
                         <label htmlFor="PasswordConfirmation" className="block text-sm font-medium text-gray-700">
                         Password Confirmation
                         </label>
-                        <input type="password" id="PasswordConfirmation" name="password_confirmation" className="mt-1 w-full rounded-md border-gray-200 bg-white text-sm text-gray-700 shadow-sm" />
+                        <input type="password" id="PasswordConfirmation" name="password_confirmation" className="mt-1 w-full rounded-md border-gray-400 bg-white text-sm text-gray-700 shadow-sm" />
                     </div>
                     <div className="col-span-6">
                         <label htmlFor="MarketingAccept" className="flex gap-4">

@@ -19,7 +19,7 @@ const Footer = () => {
                 </svg>
                 </div>
                 <p className="mx-auto mt-6 max-w-md text-center leading-relaxed text-gray-500">
-                Thanks for visiting our website. We are  professionals who are passionate about providing the best travel experience to our Travelers.
+                Thanks for visiting Our Website. We are professional to provide you the best visa processing services.
                 </p>
                 <nav aria-label="Footer Nav" className="mt-12">
                 <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
