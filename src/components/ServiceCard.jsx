@@ -5,7 +5,9 @@ import {HiCurrencyBangladeshi} from "react-icons/hi";
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css'
 
-const ServiceCard = () => {
+const ServiceCard = ({service}) => {
+    const {title, details, price, country, time, image} = service;
+
     return (
         <div href="#" className="relative block border border-gray-100">
         <button type="button" className="absolute right-4 top-4 rounded-full bg-black p-2 text-white">
@@ -15,18 +17,19 @@ const ServiceCard = () => {
         <div >
             
         <PhotoProvider >
-            <PhotoView src="https://images.unsplash.com/photo-1603356033288-acfcb54801e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80">
-                <img className="h-56 w-full object-contain lg:h-72" alt="Toy" src="https://images.unsplash.com/photo-1603356033288-acfcb54801e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" />
+            <PhotoView src={image}>
+                <img className="h-56 w-full object-contain lg:h-72" alt={title} src={image} />
             </PhotoView>
         </PhotoProvider>
         </div>
         <div className="p-6">
             <strong className="inline-block bg-yellow-400 px-3 py-1 text-xs font-medium">
-            New
+            {country}
             </strong>
-            <h3 className="mt-4 text-lg font-bold">Robot Toy</h3>
-            <p className="mt-2 text-sm text-gray-700 flex gap-1 items-center">1800 <HiCurrencyBangladeshi className='text-[18px]'/> </p>
-            <p className='text-sm text-gray-700'>This now best valuable service in bangladesh</p>
+            <h3 className="mt-4 text-lg font-bold">{title}</h3>
+            <p className='font-thin'>{time} Need Delivery With Processing</p>
+            <p className="mt-2 text-sm text-gray-700 flex gap-1 items-center">{price} <HiCurrencyBangladeshi className='text-[18px]'/> </p>
+            <p className='text-sm text-gray-700'>{details.length > 100 ? details.slice(0,100) + "..." : details}</p>
             <Link to='/service/details' type="button" className="mt-4  text-center w-full rounded-sm bg-yellow-500 p-4 text-sm font-medium">
             Details
             </Link>
