@@ -7,7 +7,7 @@ const NeedLogin = ({children}) => {
     const location = useLocation();
 
     if(loading){
-        return <h1>loading</h1>
+        return
     }
     
     if(user && user?.uid){

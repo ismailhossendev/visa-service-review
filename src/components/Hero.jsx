@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Hero = () => {
     return (
@@ -16,12 +17,12 @@ const Hero = () => {
                     We are experts who are here to help you with your visa processing. We have a 100% success rate in visa processing.
                 </p>
                 <div className="mt-8 flex flex-wrap gap-4 text-center">
-                    <a href="#" className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
+                    <Link to='/services' className="block w-full rounded bg-rose-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-rose-700 focus:outline-none focus:ring active:bg-rose-500 sm:w-auto">
                     Popular 
-                    </a>
-                    <a href="#" className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto">
+                    </Link>
+                    <Link to='/blog' className="block w-full rounded bg-white px-12 py-3 text-sm font-medium text-rose-600 shadow hover:text-rose-700 focus:outline-none focus:ring active:text-rose-500 sm:w-auto">
                     Blog
-                    </a>
+                    </Link>
                 </div>
                 </div>
             </div>

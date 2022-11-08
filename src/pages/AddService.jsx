@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const AddService = () => {
@@ -27,7 +28,7 @@ const AddService = () => {
         .then(res => res.json())
         .then(data => {
             if(data){
-                alert(data.message)
+                toast.success(data.message)
             }
         })
         
