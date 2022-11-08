@@ -3,7 +3,9 @@ import Main from "../layout/Main";
 import AddService from "../pages/AddService";
 import Home from "../pages/Home";
 import Login from "../pages/Login";
+import ProductDetails from "../pages/ProductDetails";
 import Register from "../pages/Register";
+import Services from "../pages/Services";
 
 export const route = createBrowserRouter([
     {
@@ -26,6 +28,14 @@ export const route = createBrowserRouter([
                 path:'/services/add',
                 loader: () => fetch('https://restcountries.com/v3.1/all'),
                 element:<AddService/>
+            },
+            {
+                path: "/services",
+                element:<Services/>,
+            },
+            {
+                path: "/service/details",
+                element:<ProductDetails/>,
             }
         ]
     }

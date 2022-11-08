@@ -1,30 +1,37 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ImLocation2 ,ImStarFull} from "react-icons/im";
+import {ImStarFull} from "react-icons/im";
 import {HiCurrencyBangladeshi} from "react-icons/hi";
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css'
 
 const ServiceCard = () => {
     return (
-        <div className="relative block overflow-hidden rounded-xl bg-[url(https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1592&q=80)] bg-cover bg-center bg-no-repeat">
-        <span className="absolute right-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
-            4.5
-            <ImStarFull className="ml-1 text-bg text-yellow-500 mb-0.5"/>
-        </span>
-        <span className="absolute left-4 top-4 z-10 inline-flex items-center rounded-full bg-black px-3 py-1 text-xs font-semibold text-white">
-            400
-            <HiCurrencyBangladeshi className="ml-1 text-bg text-yellow-500 mb-0.5"/>
-        </span>
-        <div className="relative bg-black bg-opacity-40 p-8 pt-40 text-white space-y-3">
-            <h3 className="text-2xl font-bold">Explore Kolkata</h3>
-            <p className="text-sm flex items-center"><ImLocation2 className='mr-1'/> Kolkata,West Bengal,India</p>
-            <Link
-            class="inline-block rounded border border-indigo-600 bg-indigo-600 px-12 py-3 text-sm font-medium text-white hover:bg-transparent hover:text-indigo-600 focus:outline-none focus:ring active:text-indigo-500"
-            href="/download"
-            >
+        <div href="#" className="relative block border border-gray-100">
+        <button type="button" className="absolute right-4 top-4 rounded-full bg-black p-2 text-white">
+            <span className="sr-only">Wishlist</span>
+            <p className="flex text-xs"><ImStarFull />4.5</p>
+        </button>
+        <div >
+            
+        <PhotoProvider >
+            <PhotoView src="https://images.unsplash.com/photo-1603356033288-acfcb54801e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80">
+                <img className="h-56 w-full object-contain lg:h-72" alt="Toy" src="https://images.unsplash.com/photo-1603356033288-acfcb54801e6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80" />
+            </PhotoView>
+        </PhotoProvider>
+        </div>
+        <div className="p-6">
+            <strong className="inline-block bg-yellow-400 px-3 py-1 text-xs font-medium">
+            New
+            </strong>
+            <h3 className="mt-4 text-lg font-bold">Robot Toy</h3>
+            <p className="mt-2 text-sm text-gray-700 flex gap-1 items-center">1800 <HiCurrencyBangladeshi className='text-[18px]'/> </p>
+            <Link to='/service/details' type="button" className="mt-4  text-center w-full rounded-sm bg-yellow-500 p-4 text-sm font-medium">
             Details
             </Link>
         </div>
         </div>
+
     );
 };
 
