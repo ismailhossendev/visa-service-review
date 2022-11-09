@@ -11,6 +11,7 @@ const MyReviews = () => {
     const {user} = React.useContext(mainContext)
     const [loading,setLoading] = React.useState(true)
     const [edit,setEdit] = React.useState("");
+    const [newReview,setNewReview] = React.useState('')
     React.useEffect(()=>{
         fetch(`https://visa-service-bakcend.vercel.app/reviews?email=${user?.email}`)
         .then(res => res.json())
@@ -35,7 +36,19 @@ const MyReviews = () => {
         })
     }
 
-    
+    const handleEdit = (id)=>{
+        fetch(`http://localhost:5000/reviews/${id}`,{
+            method:"PATCH",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({newReview})
+        })
+        .then(res=> res.json())
+        .then(data=>{
+            toast.success(data.message)
+        })
+    }
     
 
     return (
@@ -100,10 +113,10 @@ const MyReviews = () => {
                                 </div>
                                 <div className="col-span-full" bis_skin_checked="1">
                                     <label htmlFor="bio" className="text-sm">Review</label>
-                                    <textarea id="bio" placeholder="" defaultValue={review.reviewText} className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400  "></textarea>
+                                    <textarea onChange={e=> setNewReview(e.target.value)} id="bio" placeholder="" defaultValue={review.reviewText} className="w-full rounded-md focus:ring focus:ring-opacity-75 focus:ring-violet-400  "></textarea>
                                 </div>
                                 <div className="col-span-full flex gap-2 " bis_skin_checked="1">
-                                    <button className='px-6 py-2 bg-indigo-400 rounded hover:bg-indigo-500'>Submit</button>
+                                    <button onClick={()=> handleEdit(review._id)} className='px-6 py-2 bg-indigo-400 rounded hover:bg-indigo-500'>Submit</button>
                                     <button onClick={()=> setEdit('')} className='px-6 py-2 bg-rose-400 rounded hover:bg-rose-500'>Cancel</button>
                                 </div>
                             </div>
