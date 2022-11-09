@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 
 const Login = () => {
     const [show, setShow] =useState(false);
-    const {withGoogle} = useContext(mainContext)
+    const {withGoogle,withEmail} = useContext(mainContext)
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
     const navigate = useNavigate();
@@ -17,13 +17,49 @@ const Login = () => {
     const handleGoogle = () =>{
         withGoogle()
         .then(data => {
-            toast.success('Login successfully')
-            navigate(from, {replace: true})
-        }).catch(err => {
-            toast.error(err.code)
+                fetch("https://visa-service-bakcend.vercel.app/jwt",{
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({email:data.user.email})
+                })  
+                    .then(res => res.json())
+                    .then(result =>{
+                       localStorage.setItem('token',result.token)
+                        toast.success("login success")
+                       navigate(from, { replace: true });
+                    })
         })
+        .catch(error => {
+            toast.error(error.message)
+        });
     }
 
+    const handleLogin = (e)=>{
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        withEmail(email,password)
+        .then(data => {
+            fetch("https://visa-service-bakcend.vercel.app/jwt",{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({email:data.user.email})
+            })  
+                .then(res => res.json())
+                .then(result =>{
+                   localStorage.setItem('token',result.token)
+                    toast.success("login success")
+                   navigate(from, { replace: true });
+                })
+            })
+            .catch(error => {
+                toast.error(error.message)
+            });
+        }
     
 
     return (
@@ -39,11 +75,11 @@ const Login = () => {
                         Welcome Back to our website. Please login to your account.
                     </p>
                     </div>
-                    <form action className="mx-auto mt-8 mb-0 max-w-md space-y-4 ">
+                    <form  onSubmit={handleLogin} className="mx-auto mt-8 mb-0 max-w-md space-y-4 ">
                     <div>
                         <label htmlFor="email" className="sr-only">Email</label>
                         <div className="relative">
-                        <input type="email" className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter email" />
+                        <input type="email" name='email' className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter email" />
                         <span className="absolute inset-y-0 right-4 inline-flex items-center">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
@@ -54,7 +90,7 @@ const Login = () => {
                     <div>
                         <label htmlFor="password" className="sr-only">Password</label>
                         <div className="relative">
-                        <input type={show ? "text" : "password"} className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter password" />
+                        <input type={show ? "text" : "password"} name="password" className="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm" placeholder="Enter password" />
                         <span onClick={()=>setShow(!show)} className="absolute inset-y-0 right-4 inline-flex items-center">
                             {   
                                 show ? <FaEyeSlash className="h-5 w-5 text-gray-400"/> : <FaEye className="h-5 w-5 text-gray-400"/>

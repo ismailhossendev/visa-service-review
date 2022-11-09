@@ -1,5 +1,5 @@
 import React,{createContext,useState,useEffect} from 'react';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithPopup, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.config'
 import { toast } from 'react-toastify';
 
@@ -25,6 +25,7 @@ const MainContext = ({children}) => {
     const logout = () =>{
         auth.signOut().then(() => {
             setUser(null)
+            localStorage.removeItem("token")
             toast.success('successfully logout')
         }).catch((error) => {
             alert(error.message)
@@ -43,7 +44,13 @@ const MainContext = ({children}) => {
             displayName: displayName
         })
     }
-    const value = {withGoogle,user,logout,loading,setLoading,handleCreate,UpdatePhoto}
+
+    const withEmail = (email,password)=>{
+        setLoading(true)
+        return signInWithEmailAndPassword(auth,email,password)
+    }
+
+    const value = {withGoogle,user,logout,loading,setLoading,handleCreate,UpdatePhoto,withEmail}
     return (
         <div>
             <mainContext.Provider value={value}>

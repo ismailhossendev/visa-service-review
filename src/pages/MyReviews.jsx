@@ -3,17 +3,20 @@ import { Helmet } from 'react-helmet-async';
 import { FaEdit,FaTrash } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 import { mainContext } from '../context/MainContext';
-import EditReview from './EditReview';
 
 const MyReviews = () => {
     const [reviews,setReviews] = React.useState([])
     const [refresh,setRefresh] = React.useState(false)
-    const {user} = React.useContext(mainContext)
+    const {user,logout} = React.useContext(mainContext)
     const [loading,setLoading] = React.useState(true)
     const [edit,setEdit] = React.useState("");
     const [newReview,setNewReview] = React.useState('')
     React.useEffect(()=>{
-        fetch(`https://visa-service-bakcend.vercel.app/reviews?email=${user?.email}`)
+        fetch(`https://visa-service-bakcend.vercel.app/my-review?email=${user?.email}`,{
+            headers:{
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         .then(res => res.json())
         .then(data =>{
             setReviews(data.data)
@@ -33,11 +36,14 @@ const MyReviews = () => {
                 toast.success(data.message)
                 setLoading(false)
             }
+            else{
+                logout()
+            }
         })
     }
 
     const handleEdit = (id)=>{
-        fetch(`http://localhost:5000/reviews/${id}`,{
+        fetch(`https://visa-service-bakcend.vercel.app/reviews/${id}`,{
             method:"PATCH",
             headers:{
                 "Content-Type":"application/json"
@@ -47,6 +53,8 @@ const MyReviews = () => {
         .then(res=> res.json())
         .then(data=>{
             toast.success(data.message)
+            setEdit("")
+            setRefresh(!refresh)
         })
     }
     
