@@ -22,7 +22,7 @@ const CreateReview = ({user,data,refresh,setRefresh}) => {
             reviewText: e.target.message.value
         }
 
-        fetch('http://localhost:5000/review',{
+        fetch('https://visa-service-bakcend.vercel.app/review',{
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -38,7 +38,7 @@ const CreateReview = ({user,data,refresh,setRefresh}) => {
         })
 
     }
-
+    
     return (
         <div className="flex flex-col w-full mx-auto p-8 shadow-lg shadow-slate-700 my-5 rounded-xl  lg:p-12">
         <div className="flex flex-col items-center w-full" >

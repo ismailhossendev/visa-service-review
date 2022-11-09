@@ -13,7 +13,7 @@ const ProductDetails = () => {
     const [refresh,setRefresh] = useState(false);
     window.scroll(0,0)
     useEffect(()=>{
-        fetch(`http://localhost:5000/reviews?productId=${_id}`)
+        fetch(`https://visa-service-bakcend.vercel.app/reviews?productId=${_id}`)
         .then(res => res.json())
         .then(data => setReviews(data.data))
     },[_id,refresh])

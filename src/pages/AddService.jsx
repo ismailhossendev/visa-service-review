@@ -18,7 +18,7 @@ const AddService = () => {
             time: e.target.time.value,
             image: e.target.image.value
         }
-        fetch('http://localhost:5000/services/add', {
+        fetch('https://visa-service-bakcend.vercel.app/services/add', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

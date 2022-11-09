@@ -7,7 +7,7 @@ import {FaAngleRight,FaAngleLeft} from 'react-icons/fa';
 const Testimonials = () => {
   const [reviews,setReviews] = React.useState([])
   React.useEffect(()=>{
-      fetch(`http://localhost:5000/reviews?limit=6`)
+      fetch(`https://visa-service-bakcend.vercel.app/reviews?limit=6`)
       .then(res => res.json())
       .then(data => setReviews(data.data))
   },[])
