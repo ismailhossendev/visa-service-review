@@ -30,19 +30,9 @@ const NavBar = () => {
                       </>  
                     }
                     <li>
-                        <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
-                        Careers
-                        </a>
-                    </li>
-                    <li>
                         <Link className="text-gray-500 transition hover:text-gray-500/75" to="/services">
                         Services
                         </Link>
-                    </li>
-                    <li>
-                        <a className="text-gray-500 transition hover:text-gray-500/75" href="/">
-                        Projects
-                        </a>
                     </li>
                     <li>
                         <Link className="text-gray-500 transition hover:text-gray-500/75" to='/blog'>
@@ -75,18 +65,30 @@ const NavBar = () => {
                     </svg>
                     </button>
                     <nav aria-label="Main Nav" className={`${isOpen ? "top-[64px]" : 'top-[-500px]'} transition flex flex-col space-y-1 absolute md:hidden  p-2 bg-gray-800 w-screen right-0 z-50`}>
-                        <a href className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-400 hover:text-gray-700">
-                            Teams
-                        </a>
-                        <a href className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-400 hover:text-gray-700">
-                            Billing
-                        </a>
-                        <a href className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-400 hover:text-gray-700">
-                            Invoices
-                        </a>
-                        <a href className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-400 hover:text-gray-700">
-                            Account
-                        </a>
+                    { user?.uid &&
+                      <>
+                        <li>
+                            <Link className="text-gray-500 transition hover:text-gray-500/75" to="/services/add">
+                            Add services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="text-gray-500 transition hover:text-gray-500/75" to="/my-reviews">
+                            My Reviews
+                            </Link>
+                        </li>
+                      </>  
+                    }
+                    <li>
+                        <Link className="text-gray-500 transition hover:text-gray-500/75" to="/services">
+                        Services
+                        </Link>
+                    </li>
+                    <li>
+                        <Link className="text-gray-500 transition hover:text-gray-500/75" to='/blog'>
+                        Blog
+                        </Link>
+                    </li>
                     </nav>
                 </div>
                 </div>

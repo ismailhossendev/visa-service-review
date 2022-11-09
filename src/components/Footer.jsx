@@ -1,7 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logo from '../assest/img/logo.png';
+import { mainContext } from '../context/MainContext';
 
 const Footer = () => {
+    const { user } = React.useContext(mainContext);
     return (
         <footer aria-label="Site Footer" className="bg-gray-100">
             <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
@@ -13,35 +16,29 @@ const Footer = () => {
                 </p>
                 <nav aria-label="Footer Nav" className="mt-12">
                 <ul className="flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
+                    { user?.uid &&
+                      <>
+                        <li>
+                            <Link className="text-gray-500 transition hover:text-gray-500/75" to="/services/add">
+                            Add services
+                            </Link>
+                        </li>
+                        <li>
+                            <Link className="text-gray-500 transition hover:text-gray-500/75" to="/my-reviews">
+                            My Reviews
+                            </Link>
+                        </li>
+                      </>  
+                    }
                     <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        About
-                    </a>
-                    </li>
-                    <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        Careers
-                    </a>
-                    </li>
-                    <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        History
-                    </a>
-                    </li>
-                    <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                        <Link className="text-gray-500 transition hover:text-gray-500/75" to="/services">
                         Services
-                    </a>
+                        </Link>
                     </li>
                     <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
-                        Projects
-                    </a>
-                    </li>
-                    <li>
-                    <a className="text-gray-700 transition hover:text-gray-700/75" href="/">
+                        <Link className="text-gray-500 transition hover:text-gray-500/75" to='/blog'>
                         Blog
-                    </a>
+                        </Link>
                     </li>
                 </ul>
                 </nav>
